@@ -1,4 +1,4 @@
-NAME   := pf.is.s.u-tokyo.ac.jp/~awamoto/docker/hakase/qemu
+NAME   := pf.is.s.u-tokyo.ac.jp/liva/docker/hakase/qemu
 TAG    := $(shell git log -1 --pretty=%H)
 IMG    := ${NAME}:${TAG}
 LATEST := ${NAME}:latest
