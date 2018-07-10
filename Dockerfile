@@ -27,14 +27,14 @@ RUN wget http://www.pf.is.s.u-tokyo.ac.jp/~awamoto/hakase/linux-headers-4.14.34h
  && wget http://www.pf.is.s.u-tokyo.ac.jp/~awamoto/hakase/linux-libc-dev_4.14.34hakase-1_amd64.deb \
  && dpkg -i *hakase-1_amd64.deb \
  && rm *hakase-1_amd64.deb
+COPY qemu .
+COPY ssh .
+COPY rsync .
 WORKDIR /root
-RUN QEMUIMAGE=hakase_qemuimage_AtLJVzxuTE0Wd3gyRb0gSffva5mJ3NVP.tar.bz2 \
+RUN QEMUIMAGE=hakase_qemuimage_HlBbeXuY5BvGN9TqPMhppbt7Fl2KPCjh.tar.bz2 \
  && wget http://www.pf.is.s.u-tokyo.ac.jp/~awamoto/hakase/${QEMUIMAGE} \
  && tar xf ${QEMUIMAGE} \
  && rm ${QEMUIMAGE}
 RUN mkdir .ssh \
  && chmod 700 .ssh \
  && mv id_rsa* .ssh
-COPY qemu .
-COPY ssh .
-COPY rsync .
