@@ -28,13 +28,16 @@ RUN wget http://www.pf.is.s.u-tokyo.ac.jp/~awamoto/hakase/linux-headers-4.14.34h
  && dpkg -i *hakase-1_amd64.deb \
  && rm *hakase-1_amd64.deb
 WORKDIR /root
-COPY qemu .
-COPY ssh .
-COPY rsync .
-RUN QEMUIMAGE=hakase_qemuimage_HlBbeXuY5BvGN9TqPMhppbt7Fl2KPCjh.tar.bz2 \
+RUN wget http://www.pf.is.s.u-tokyo.ac.jp/~awamoto/hakase/ubuntu-16.04-server-cloudimg-amd64-disk1.qcow2.tar.bz2 \
+ && tar xf ubuntu-16.04-server-cloudimg-amd64-disk1.qcow2.tar.bz2 \
+ && rm ubuntu-16.04-server-cloudimg-amd64-disk1.qcow2.tar.bz2
+RUN QEMUIMAGE=hakase_qemuimage_YZoRc0VE25ZggK8JWxurs+a87f+SWRrZ.tar.bz2 \
  && wget http://www.pf.is.s.u-tokyo.ac.jp/~awamoto/hakase/${QEMUIMAGE} \
  && tar xf ${QEMUIMAGE} \
  && rm ${QEMUIMAGE}
 RUN mkdir .ssh \
  && chmod 700 .ssh \
  && mv id_rsa* .ssh
+COPY qemu .
+COPY ssh .
+COPY rsync .
