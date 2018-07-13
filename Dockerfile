@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER Shinichi Awamoto <sap.pcmail@gmail.com>
 
-ARG qemu_image_signature="xucqNDjTTtCORC4d"
+ARG qemu_image_signature="xucqNDjTTtCORC4a"
 
 RUN set -x \
  && cd \
