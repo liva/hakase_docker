@@ -1,6 +1,8 @@
 FROM ubuntu:16.04
 MAINTAINER Shinichi Awamoto <sap.pcmail@gmail.com>
 
+ARG qemu_image_signature="xucqNDjTTtCORC4d"
+
 RUN set -x \
  && cd \
  && apt clean \
@@ -27,11 +29,7 @@ RUN wget http://www.pf.is.s.u-tokyo.ac.jp/~awamoto/hakase/linux-headers-4.14.34h
  && dpkg -i *hakase-1_amd64.deb \
  && rm *hakase-1_amd64.deb
 WORKDIR /root
-RUN wget http://www.pf.is.s.u-tokyo.ac.jp/~awamoto/hakase/ubuntu-16.04-server-cloudimg-amd64-disk1.qcow2
-RUN QEMUIMAGE=hakase_qemuimage_FOh7aX14Eft6jMAy.tar \
- && wget http://www.pf.is.s.u-tokyo.ac.jp/~awamoto/hakase/${QEMUIMAGE} \
- && tar xf ${QEMUIMAGE} \
- && rm ${QEMUIMAGE}
+ADD hakase_qemuimage_${qemu_image_signature}.tar .
 RUN mkdir .ssh \
  && chmod 700 .ssh \
  && mv id_rsa* .ssh

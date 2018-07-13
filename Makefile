@@ -10,3 +10,4 @@ build:
 
 push:
 	@docker push ${IMG}
+	@docker push ${LATEST}
