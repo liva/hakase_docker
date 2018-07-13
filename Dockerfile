@@ -9,7 +9,6 @@ RUN set -x \
  && apt install -y \
 	  wget \
 	  git \
-	  lbzip2 \
 	  libelf-dev \
 	  make \
 	  g++ \
@@ -28,10 +27,8 @@ RUN wget http://www.pf.is.s.u-tokyo.ac.jp/~awamoto/hakase/linux-headers-4.14.34h
  && dpkg -i *hakase-1_amd64.deb \
  && rm *hakase-1_amd64.deb
 WORKDIR /root
-RUN wget http://www.pf.is.s.u-tokyo.ac.jp/~awamoto/hakase/ubuntu-16.04-server-cloudimg-amd64-disk1.qcow2.tar.bz2 \
- && tar xf ubuntu-16.04-server-cloudimg-amd64-disk1.qcow2.tar.bz2 \
- && rm ubuntu-16.04-server-cloudimg-amd64-disk1.qcow2.tar.bz2
-RUN QEMUIMAGE=hakase_qemuimage_YZoRc0VE25ZggK8JWxurs+a87f+SWRrZ.tar.bz2 \
+RUN wget http://www.pf.is.s.u-tokyo.ac.jp/~awamoto/hakase/ubuntu-16.04-server-cloudimg-amd64-disk1.qcow2
+RUN QEMUIMAGE=hakase_qemuimage_FOh7aX14Eft6jMAy.tar \
  && wget http://www.pf.is.s.u-tokyo.ac.jp/~awamoto/hakase/${QEMUIMAGE} \
  && tar xf ${QEMUIMAGE} \
  && rm ${QEMUIMAGE}
