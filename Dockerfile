@@ -34,3 +34,5 @@ RUN mkdir .ssh \
 COPY qemu .
 COPY ssh .
 COPY rsync .
+COPY monitor .
+COPY serial .
