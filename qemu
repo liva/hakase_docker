@@ -1,2 +1,2 @@
 #!/bin/bash
-qemu-system-x86_64 -loadvm snapshot1 -cpu Haswell -nographic -no-reboot -hda /root/ubuntu-16.04-server-cloudimg-amd64-disk1.diff.qcow2 -hdb /root/cloud.qcow2 -smp 5 -m 4G -net nic -net user,hostfwd=tcp::2222-:22,hostfwd=tcp::2873-:873 -serial telnet:127.0.0.1:4444,server,nowait -monitor telnet:127.0.0.1:4445,server,nowait $@
+qemu-system-x86_64 -loadvm snapshot1 -cpu Haswell -nographic -no-reboot -d cpu_reset -D /tmp/qemu.log -hda /root/ubuntu-16.04-server-cloudimg-amd64-disk1.diff.qcow2 -hdb /root/cloud.qcow2 -smp 5 -m 4G -net nic -net user,hostfwd=tcp::2222-:22,hostfwd=tcp::2873-:873 -serial telnet:127.0.0.1:4444,server,nowait -monitor telnet:127.0.0.1:4445,server,nowait $@
