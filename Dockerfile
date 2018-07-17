@@ -53,7 +53,8 @@ RUN set -x \
  && rm -rf /var/lib/apt/lists/* \
  && apt -qy autoremove
 WORKDIR /usr/src
-#COPY --from=qemu /build-qemu/qemu_2.9.0-1_amd64.deb .
+# TODO
+# COPY --from=qemu /build-qemu/qemu_2.9.0-1_amd64.deb .
 RUN wget http://www.pf.is.s.u-tokyo.ac.jp/~awamoto/hakase/qemu_2.9.0-1_amd64.deb \
  && dpkg -i qemu_2.9.0-1_amd64.deb \
  && rm qemu_2.9.0-1_amd64.deb
