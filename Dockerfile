@@ -33,6 +33,7 @@ ADD hakase_qemuimage_${qemu_image_signature}.tar .
 RUN mkdir .ssh \
  && chmod 700 .ssh \
  && mv id_rsa* .ssh
+COPY --from=cpputest:local /install /cpputest
 COPY qemu .
 COPY ssh .
 COPY rsync .
