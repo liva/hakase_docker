@@ -1,3 +1,14 @@
+FROM ubuntu:16.04 AS cpputest
+
+RUN apt update
+RUN apt install -y cmake git build-essential
+RUN git clone git://github.com/cpputest/cpputest.git
+RUN mkdir workspace install
+WORKDIR workspace
+RUN cmake -DCMAKE_INSTALL_PREFIX=../install -DCOVERAGE=ON ../cpputest
+RUN make -j$(grep -c ^processor /proc/cpuinfo 2>/dev/null)
+RUN make install
+
 FROM ubuntu:16.04
 MAINTAINER Shinichi Awamoto <sap.pcmail@gmail.com>
 
@@ -33,7 +44,7 @@ ADD hakase_qemuimage_${qemu_image_signature}.tar .
 RUN mkdir .ssh \
  && chmod 700 .ssh \
  && mv id_rsa* .ssh
-COPY --from=cpputest:local /install /cpputest
+COPY --from=cpputest /install /cpputest
 COPY qemu .
 COPY ssh .
 COPY rsync .
