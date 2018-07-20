@@ -75,12 +75,3 @@ COPY ssh .
 COPY rsync .
 COPY monitor .
 COPY serial .
-RUN set -x \
- && cd \
- && apt update \
- && apt install -y \
-	  clang-format \
-	  git \
- && apt clean \
- && rm -rf /var/lib/apt/lists/* \
- && apt -qy autoremove
