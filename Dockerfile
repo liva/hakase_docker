@@ -76,3 +76,4 @@ COPY sftp .
 COPY rsync .
 COPY monitor .
 COPY serial .
+COPY netcat .
