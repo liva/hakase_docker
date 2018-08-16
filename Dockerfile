@@ -72,6 +72,7 @@ RUN mkdir .ssh \
 COPY --from=cpputest /install /cpputest
 COPY qemu .
 COPY ssh .
+COPY sftp .
 COPY rsync .
 COPY monitor .
 COPY serial .
