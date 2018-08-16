@@ -1,2 +1,0 @@
-#!/bin/bash
-rsync -r $1 rsync://${RSYNC_ADDR:-localhost}:${RSYNC_PORT:-2873}/$2

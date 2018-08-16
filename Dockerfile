@@ -35,6 +35,7 @@ RUN make install
 FROM ubuntu:16.04
 MAINTAINER Shinichi Awamoto <sap.pcmail@gmail.com>
 
+# delete rsync
 RUN set -x \
  && cd \
  && apt clean \
@@ -73,7 +74,6 @@ COPY --from=cpputest /install /cpputest
 COPY qemu .
 COPY ssh .
 COPY sftp .
-COPY rsync .
 COPY monitor .
 COPY serial .
 COPY netcat .
