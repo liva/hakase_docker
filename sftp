@@ -1,0 +1,2 @@
+#!/bin/bash
+sftp -o LogLevel=quiet -o StrictHostKeyChecking=no -o GlobalKnownHostsFile=/dev/null -o UserKnownHostsFile=/dev/null -P ${SSH_PORT:-2222} ${SSH_USER:-ubuntu}@${SSH_ADDR:-localhost} $@
