@@ -1,2 +1,2 @@
 #!/bin/bash
-rsync $1 rsync://localhost:2873/$2
+rsync -r $1 rsync://localhost:2873/$2
